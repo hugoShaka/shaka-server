@@ -1,0 +1,23 @@
+---
+
+- name: Update apt cache
+  apt: update_cache=yes
+
+- name: Install basic packages
+  apt: "pkg={{item}} state=installed"
+  with_items:
+    - vim
+    - fish
+    - tmux
+    - htop
+    - wget
+    - iotop
+
+- include: vim.yml
+
+- include: tmux.yml
+
+- include: git.yml
+
+- include: fish.yml
+
