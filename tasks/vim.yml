@@ -1,0 +1,13 @@
+---
+
+- name: Clone shaka's vim-config repo
+  git:
+    repo: git://github.com/hugoShaka/vim-config.git
+    dest: ~/.vim
+
+- name: Symlink vimrc
+  file:
+    src: ~/vim/vimrc
+    dest: ~/.vimrc
+    state: link
+
