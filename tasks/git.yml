@@ -1,0 +1,6 @@
+---
+
+- name: Copying .gitconfig into home
+  template:
+    src: gitconfig.j2
+    dest: ~/.gitconfig
