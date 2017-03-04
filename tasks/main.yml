@@ -2,6 +2,8 @@
 
 - name: Update apt cache
   apt: update_cache=yes
+  become: yes
+  become_user: sudo
 
 - name: Install basic packages
   apt: "pkg={{item}} state=installed"
@@ -12,10 +14,12 @@
     - htop
     - wget
     - iotop
+  become: yes
+  become_user: sudo
 
 - include: vim.yml
 
-- include: tmux.yml
+#- include: tmux.yml
 
 - include: git.yml
 

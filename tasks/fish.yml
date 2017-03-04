@@ -1,0 +1,7 @@
+---
+
+- name: Clone shaka's fish-config repo
+  git:
+    repo: git://github.com/hugoShaka/fish-config.git
+    dest: ~/.config/fish/
+
