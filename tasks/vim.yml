@@ -7,7 +7,7 @@
 
 - name: Symlink vimrc
   file:
-    src: ~/vim/vimrc
+    src: ~/.vim/vimrc
     dest: ~/.vimrc
     state: link
 
