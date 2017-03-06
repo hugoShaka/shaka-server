@@ -5,6 +5,17 @@
   become: yes
   become_user: root
 
+- name: Ensure .config/ is here and is owned by the user
+  file:
+    path: ~/.config
+    mode: 0750
+    state: directory
+    owner: "{{shaka-server_username}}"
+    group: "{{shaka-server_username}}"
+  become: yes
+  become_user: root
+
+
 - name: Install basic packages
   apt: "pkg={{item}} state=installed"
   with_items:
