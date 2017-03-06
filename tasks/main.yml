@@ -7,11 +7,11 @@
 
 - name: Ensure .config/ is here and is owned by the user
   file:
-    path: ~/.config
+    path: "/home/{{shakaServer_username}}/.config"
     mode: 0750
     state: directory
-    owner: "{{shaka-server_username}}"
-    group: "{{shaka-server_username}}"
+    owner: "{{shakaServer_username}}"
+    group: "{{shakaServer_username}}"
   become: yes
   become_user: root
 
