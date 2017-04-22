@@ -25,6 +25,7 @@
     - htop
     - wget
     - iotop
+    - git
   become: yes
   become_user: root
 
