@@ -3,11 +3,11 @@
 - name: Clone shaka's vim-config repo
   git:
     repo: git://github.com/hugoShaka/vim-config.git
-    dest: ~/.vim
+    dest: "{{shakaServer_home}}/.vim"
 
 - name: Symlink vimrc
   file:
-    src: ~/.vim/vimrc
-    dest: ~/.vimrc
+    src: "{{shakaServer_home}}/.vim/vimrc"
+    dest: "{{shakaServer_home}}/.vimrc"
     state: link
 

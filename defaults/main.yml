@@ -1,2 +1,3 @@
 ---
   shakaServer_username: shaka
+  shakaServer_home: "/home/{{shakaServer_username}}"
