@@ -1,20 +1,33 @@
 ---
 
-- name: Update apt cache
-  apt: update_cache=yes
+- name: Ensure the user exists, is sudoer, and got the right shell
+  user:
+    name: "{{shakaServer_username}}"
+    home: "{{shakaServer_home}}"
+    move_home: yes
+    shell: /usr/bin/fish
+    groups: sudo
+    append: yes
   become: yes
   become_user: root
+  tags: root
 
 - name: Ensure .config/ is here and is owned by the user
   file:
-    path: "/home/{{shakaServer_username}}/.config"
+    path: "{{shakaServer_home}}/.config"
     mode: 0750
     state: directory
     owner: "{{shakaServer_username}}"
     group: "{{shakaServer_username}}"
   become: yes
   become_user: root
+  tags: root
 
+- name: Update apt cache
+  apt: update_cache=yes
+  become: yes
+  become_user: root
+  tags: root
 
 - name: Install basic packages
   apt: "pkg={{item}} state=installed"
@@ -28,6 +41,7 @@
     - git
   become: yes
   become_user: root
+  tags: root
 
 - include: vim.yml
 
