@@ -1,5 +1,5 @@
 ---
-- hosts: mailserver
+- hosts: localhost
   roles:
   - role_under_test
   become: yes
