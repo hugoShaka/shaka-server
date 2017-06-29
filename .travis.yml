@@ -14,7 +14,7 @@ install:
 
 script:
   - docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml --syntax-check
-  - docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/role_under_test/tests/test.yml -v -l localhost
+  - docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml -v -l localhost
 
 after_script:
-  - docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/role_under_test/tests/test.yml -v -l localhost
+  - docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml -v -l localhost
